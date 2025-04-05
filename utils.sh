@@ -9,16 +9,14 @@ create_symlink() {
         echo "$srz doesn't exist"
     fi
 
-    # create the parent directories if they don't exist
-    dst_dir="$(dirname "$dst")"
-    if [ ! -d "$dst_dir" ]; then
-        mkdir -p "$dst_dir"
+    # check if symlink but not dst
+    if [ -L "$dst" ] && [ ! -e "$dst" ]; then
+        rm "$dst"
     fi
 
-    if [ ! -e $dst ]; then
-        if [ -L $dst ]; then # this infers a broken symlink
-            rm $dst
-        fi
-        ln -s $srz $dst
+    # check if not dst and not symlink
+    if [ ! -e "$dst" ] && [ ! -L "$dst" ]; then
+        mkdir -p "$(dirname "$dst")" # ensure parent dirs
+        ln -s "$srz" "$dst"
     fi
 }
