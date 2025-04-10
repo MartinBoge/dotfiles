@@ -13,4 +13,5 @@ cask "microsoft-teams"
 cask "microsoft-word"
 cask "microsoft-excel"
 cask "microsoft-powerpoint"
+cask "microsoft-outlook"
 
