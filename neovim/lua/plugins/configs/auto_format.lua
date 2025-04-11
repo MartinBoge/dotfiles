@@ -13,7 +13,7 @@ return {
 				},
 				javascript = { "prettier" },
 				-- html = { "djlint" },
-				-- htmldjango = { "djlint" },
+				htmldjango = { "djlint" },
 				javascriptreact = { "prettier" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
