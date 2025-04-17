@@ -1,6 +1,8 @@
 # setup aliases
-alias venv="source .venv/bin/activate"
+alias c="clear"
+alias cdh="cd ~"
 alias res="exec $SHELL"
+alias venv="source .venv/bin/activate"
 
 openu() {
     open "https://$1"
