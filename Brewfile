@@ -13,6 +13,8 @@ brew "pnpm"
 brew "libpq"
 brew "ripgrep"
 
+brew "azure-cli"
+
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"
 
