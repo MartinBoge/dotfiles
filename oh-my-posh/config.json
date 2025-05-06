@@ -5,6 +5,15 @@
       "alignment": "left",
       "segments": [
         {
+          "foreground": "cyan",
+          "properties": {
+            "style": "full"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
           "foreground": "#F1502F",
           "properties": {
             "fetch_status": true
@@ -38,12 +47,9 @@
       "segments": [
         {
           "foreground": "cyan",
-          "properties": {
-            "style": "full"
-          },
           "style": "plain",
-          "template": "{{ .Path }} ",
-          "type": "path"
+          "template": "$ ",
+          "type": "text"
         }
       ],
       "type": "prompt"
