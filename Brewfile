@@ -25,6 +25,7 @@ cask "visual-studio-code"
 
 # Misc
 cask "font-jetbrains-mono-nerd-font"
+cask "keepingyouawake"
 
 # Desktop applications
 cask "microsoft-edge"
