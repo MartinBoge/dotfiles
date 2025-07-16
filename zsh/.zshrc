@@ -21,6 +21,9 @@ ccu() {
   help() {
     echo "---- Complychain Utility (ccu) ----"
     echo ""
+    echo "Global utility:"
+    echo "  ccu g ss            Sync backend and frontend schema/types"
+    echo ""
     echo "Frontend utility:"
     echo "  ccu f dev           Run dev server"
     echo ""
@@ -31,8 +34,25 @@ ccu() {
     echo "  ccu b tw            Run tailwind serve"
   }
 
+  # Global utility
+  if [[ $1 == "g" ]]; then
+  
+    if [[ $2 == "ss" ]]; then
+      cd "$(groot)/backend"
+      venv
+      cd src
+      python manage.py export_openapi_json
+
+      cd "$(groot)/frontend"
+      pnpm generate-api-backend-types
+
+      cd "$(groot)"
+    else
+      help
+    fi
+
   # Frontend utility
-  if [[ $1 == "f" ]]; then
+  elif [[ $1 == "f" ]]; then
 
     if [[ $2 == "dev" ]]; then
       cd "$(groot)/frontend"
