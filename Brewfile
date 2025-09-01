@@ -2,6 +2,7 @@
 cask "ghostty"
 brew "tmux"
 brew "lazygit"
+cask "fork"
 brew "oh-my-posh"
 
 # Development tools
