@@ -1,7 +1,7 @@
 # Essentials
 cask "ghostty"
 brew "tmux"
-brew "lazygit"
+# brew "lazygit" - currently using fork
 cask "fork"
 brew "oh-my-posh"
 
