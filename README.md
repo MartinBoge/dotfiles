@@ -9,7 +9,7 @@ Prerequisites:
 Steps:
 
 1. Clone repo: `git clone git@github.com:MartinBoge/dotfiles.git`
-2. Install dependencies and setup configs: `./mac.zsh`
+2. Install dependencies and setup configs: `source mac.zsh`
 
 Extra (optional):
 
@@ -21,7 +21,7 @@ Extra (optional):
 Steps:
 
 1. Clone repo: `git clone git@github.com:MartinBoge/dotfiles.git`
-2. Install dependencies and setup configs: `./ubuntu.sh`
+2. Install dependencies and setup configs: `source ubuntu.sh`
 
 ### SSH Keygen
 
