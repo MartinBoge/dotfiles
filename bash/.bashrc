@@ -1,3 +1,6 @@
+# Path
+export PATH=$PATH:~/.local/bin
+
 # Aliases
 alias c="clear"
 alias cdh="cd ~"
@@ -13,3 +16,6 @@ openu() {
 groot() { # git repo root
   git rev-parse --show-toplevel
 }
+
+# Initializations
+eval "$(oh-my-posh init bash --config ~/.config/oh-my-posh/config.json)"

@@ -14,7 +14,7 @@ groot() { # git repo root
   git rev-parse --show-toplevel
 }
 
-# Init oh-my-posh
+# Initializations
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.json)"
 
 # Complychain utility
