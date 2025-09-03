@@ -6,7 +6,7 @@ sudo apt upgrade -y
 sudo apt install -y \
     unzip
 
-echo "Installing other dependencies..."
+echo "Installing dependencies manually..."
 curl -s https://ohmyposh.dev/install.sh | bash -s
 
 echo "Sourcing utils..."
