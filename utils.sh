@@ -11,14 +11,12 @@ create_symlink() {
         return 1
     fi
 
-    # Remove broken symlink
-    if [ -L "$dst" ] && [ ! -e "$dst" ]; then
-        rm "$dst"
-    fi
+    # Clear destination path for symlink
+    rm -f "$dst"
+    
+    # Ensure parent directories
+    mkdir -p "$(dirname "$dst")"
 
-    # Create symlink if destination doesn't exist
-    if [ ! -e "$dst" ] && [ ! -L "$dst" ]; then
-        mkdir -p "$(dirname "$dst")"
-        ln -s "$src" "$dst"
-    fi
+    # Create symlink
+    ln -s "$src" "$dst"
 }
