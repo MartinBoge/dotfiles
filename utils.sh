@@ -1,22 +1,24 @@
-#!/bin/sh
+#!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 create_symlink() {
-    srz="$SCRIPT_DIR/$1"
-    dst=$2
-    if [ ! -e $srz ]; then
-        echo "$srz doesn't exist"
+    local src="$SCRIPT_DIR/$1"
+    local dst="$2"
+    
+    if [ ! -e "$src" ]; then
+        echo "$src doesn't exist"
+        return 1
     fi
 
-    # check if symlink but not dst
+    # Remove broken symlink
     if [ -L "$dst" ] && [ ! -e "$dst" ]; then
         rm "$dst"
     fi
 
-    # check if not dst and not symlink
+    # Create symlink if destination doesn't exist
     if [ ! -e "$dst" ] && [ ! -L "$dst" ]; then
-        mkdir -p "$(dirname "$dst")" # ensure parent dirs
-        ln -s "$srz" "$dst"
+        mkdir -p "$(dirname "$dst")"
+        ln -s "$src" "$dst"
     fi
 }
