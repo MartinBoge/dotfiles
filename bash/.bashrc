@@ -5,6 +5,7 @@ export PATH=$PATH:~/.local/bin
 alias c="clear"
 alias cdh="cd ~"
 alias res="exec $SHELL"
+alias lg="lazygit"
 alias venv="source .venv/bin/activate"
 
 # Functions
