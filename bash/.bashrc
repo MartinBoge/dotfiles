@@ -4,6 +4,7 @@ export PATH=$PATH:~/.local/bin
 # Aliases
 alias c="clear"
 alias cdh="cd ~"
+alias cdg='cd "$(groot)"'
 alias res="exec $SHELL"
 alias lg="lazygit"
 alias venv="source .venv/bin/activate"
