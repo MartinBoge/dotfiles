@@ -4,6 +4,7 @@ brew "tmux"
 # brew "lazygit" - currently using fork
 cask "fork"
 brew "oh-my-posh"
+brew "jq"
 
 # Development tools
 brew "uv"
