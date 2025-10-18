@@ -14,7 +14,7 @@ brew "pnpm"
 # Development dependencies
 brew "libpq"
 brew "ripgrep"
-cask "docker"
+cask "docker-desktop"
 
 brew "azure-cli"
 
