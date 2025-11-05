@@ -17,6 +17,7 @@ brew "ripgrep"
 cask "docker-desktop"
 
 brew "azure-cli"
+brew "azcopy"
 
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"
