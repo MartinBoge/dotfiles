@@ -4,6 +4,9 @@ vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard for all yank, delete, and paste operations (may require external provider on linux)
 
+-- Colorscheme / Theme
+local colors = vim.fn.json_decode(vim.fn.readfile(vim.fn.expand("~/dotfiles/colors.json")))
+
 -- Key mappings: Leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
@@ -68,22 +71,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	spec = {
 		{
-			"folke/tokyonight.nvim",
-			lazy = false,
-			priority = 1000,
-			opts = {
-				on_highlights = function(hl, colors)
-					hl.LineNr = { fg = colors.cyan, bold = true }
-					hl.LineNrAbove = { fg = "#5a6a8a" }
-					hl.LineNrBelow = { fg = "#5a6a8a" }
-				end,
-			},
-			config = function(_, opts)
-				require("tokyonight").setup(opts)
-				vim.cmd.colorscheme("tokyonight-night")
-			end,
-		},
-		{
 			"nvim-treesitter/nvim-treesitter",
 			lazy = false,
 			build = ":TSUpdate",
@@ -143,6 +130,9 @@ require("lazy").setup({
 						"ruff_format",
 						"ruff_organize_imports",
 					},
+					markdown = { "prettier" },
+					yaml = { "prettier" },
+					json = { "prettier" },
 				},
 			},
 		},
@@ -239,11 +229,7 @@ require("lazy").setup({
 			"nvim-lualine/lualine.nvim",
 			event = "VeryLazy",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
-			opts = {
-				options = {
-					theme = "tokyonight-night",
-				},
-			},
+			opts = {},
 		},
 		{
 			"folke/noice.nvim",

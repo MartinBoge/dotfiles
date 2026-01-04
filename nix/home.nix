@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  colors = builtins.fromJSON (builtins.readFile ../colors.json);
+in
 {
   home.stateVersion = "25.05";
 
@@ -29,6 +32,7 @@
     stylua
     pyright
     ruff
+    prettier
   ];
 
   programs.home-manager.enable = true;
@@ -49,54 +53,12 @@
 
   programs.tmux = {
     enable = true;
-    terminal = "screen-256color";
-    prefix = "C-a";
-    mouse = true;
-    keyMode = "vi";
-    customPaneNavigationAndResize = true;
 
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
-      resurrect
-      continuum
-      {
-        plugin = pkgs.tmuxPlugins.power-theme;
-        extraConfig = ''
-          set -g @tmux_power_theme 'default'
-        '';
-      }
     ];
 
-    extraConfig = ''
-      # Custom keybindings
-      unbind %
-      bind | split-window -h
-
-      unbind '"'
-      bind - split-window -v
-
-      unbind r
-      bind r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded!"
-
-      # Copy mode
-      bind -T copy-mode-vi 'v' send -X begin-selection
-      unbind -T copy-mode-vi MouseDragEnd1Pane
-
-      ${
-        if pkgs.stdenv.isDarwin then
-          ''
-            bind -T copy-mode-vi 'y' send-keys -X copy-pipe 'pbcopy'
-          ''
-        else
-          ''
-            bind -T copy-mode-vi 'y' send -X copy-selection
-          ''
-      }
-
-      # Plugin settings
-      set -g @resurrect-capture-pane-contents 'on'
-      set -g @continuum-restore 'on'
-    '';
+    extraConfig = "source-file ~/dotfiles/tmux/.tmux.conf";
   };
 
   programs.git = {

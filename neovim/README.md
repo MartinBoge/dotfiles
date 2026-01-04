@@ -4,6 +4,7 @@
 
 ### To do / Ideas
 
+- A way to persist or "setup" good tmux sessions. Maybe via aliases?
 - Mark down previewer
 - Mark down format (prettier)
 - Write without formatting
