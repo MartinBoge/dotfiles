@@ -39,6 +39,14 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.expandtab = false
 	end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "nix",
+	callback = function()
+		vim.opt.shiftwidth = 2
+		vim.opt.tabstop = 2
+		vim.opt.softtabstop = 2
+	end,
+})
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
