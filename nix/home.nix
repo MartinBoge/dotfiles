@@ -34,31 +34,28 @@
   programs.home-manager.enable = true;
 
   home.file.".config/nixpkgs/config.nix".source =
-    config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/dotfiles/nix/config.nix";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nix/config.nix";
 
-  home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/dotfiles/shell/.zshrc";
+  home.file.".zshrc".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/shell/.zshrc";
 
   programs.oh-my-posh.enable = true;
   home.file.".config/oh-my-posh/config.json".source =
-    config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/dotfiles/oh-my-posh/config.json";
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/oh-my-posh/config.json";
 
   programs.neovim.enable = true;
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/dotfiles/neovim";
+  home.file.".config/nvim".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/neovim";
 
   programs.tmux.enable = true;
-  home.file.".tmux.conf".source = config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/dotfiles/tmux/.tmux.conf";
+  home.file.".tmux.conf".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/tmux/.tmux.conf";
 
   programs.git = {
     enable = true;
-    userName = "Martin Bøge Jørgensen";
-    userEmail = "martin.boge@live.dk";
-
-    extraConfig = {
+    settings = {
+      user.name = "Martin Bøge Jørgensen";
+      user.email = "martin.boge@live.dk";
       init.defaultBranch = "main";
       pull.rebase = true;
     };
