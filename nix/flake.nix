@@ -51,7 +51,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.martin = import ./home.nix;
+            home-manager.users.martin = { imports = [ ./home.nix ./hosts/mac/home.nix ]; };
           }
         ];
       };
