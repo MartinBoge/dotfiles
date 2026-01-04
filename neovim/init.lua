@@ -4,7 +4,7 @@ vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard for all yank, delete, and paste operations (may require external provider on linux)
 
--- Colorscheme / Theme
+-- Theme (todo)
 local colors = vim.fn.json_decode(vim.fn.readfile(vim.fn.expand("~/dotfiles/colors.json")))
 
 -- Key mappings: Leader

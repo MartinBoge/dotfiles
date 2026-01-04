@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  colors = builtins.fromJSON (builtins.readFile ../colors.json);
-in
 {
   home.stateVersion = "25.05";
 
@@ -58,7 +55,9 @@ in
       vim-tmux-navigator
     ];
 
-    extraConfig = "source-file ~/dotfiles/tmux/.tmux.conf";
+    extraConfig = ''
+      source-file ~/dotfiles/tmux/.tmux.conf
+    '';
   };
 
   programs.git = {

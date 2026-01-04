@@ -1,4 +1,8 @@
 {
-  "bg": "#282c34",
-  "fg": "#bedbff"
+  "bg": "#101828",
+  "fg": "#e5e7eb",
+  "fgMuted": "#d1d5dc",
+  "border": "#364153",
+  "primary": "#2b7fff",
+  "primaryMuted": "#8ec5ff"
 }
