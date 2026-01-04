@@ -20,32 +20,40 @@
     };
   };
 
-  outputs = { nixpkgs, nixos-wsl, nix-darwin, home-manager, ... }: {
-    nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        nixos-wsl.nixosModules.wsl
-        ./hosts/wsl/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.nixos = import ./home.nix;
-        }
-      ];
-    };
+  outputs =
+    {
+      nixpkgs,
+      nixos-wsl,
+      nix-darwin,
+      home-manager,
+      ...
+    }:
+    {
+      nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          nixos-wsl.nixosModules.wsl
+          ./hosts/wsl/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nixos = import ./home.nix;
+          }
+        ];
+      };
 
-    darwinConfigurations.mac = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-        ./hosts/mac/configuration.nix
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.martin = import ./home.nix;
-        }
-      ];
+      darwinConfigurations.mac = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./hosts/mac/configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.martin = import ./home.nix;
+          }
+        ];
+      };
     };
-  };
 }

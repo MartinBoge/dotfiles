@@ -3,7 +3,10 @@
 {
   system.stateVersion = 6;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   system.primaryUser = "martin";

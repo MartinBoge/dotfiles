@@ -3,7 +3,14 @@
 {
   system.stateVersion = "25.05";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    download-buffer-size = 268435456; # 256 MB
+  };
+
   nixpkgs.config.allowUnfree = true;
 
   wsl.enable = true;
