@@ -8,14 +8,11 @@
     unzip
     ripgrep
     jq
-    tmux
     python3
     gcc
     tree-sitter
-    oh-my-posh
 
     # Development
-    neovim
     uv
     nodejs_24
     pnpm
@@ -34,21 +31,27 @@
     ruff
   ];
 
-  home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/dotfiles/shell/.zshrc";
-
-  home.file.".config/oh-my-posh/config.json".source =
-    config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/dotfiles/oh-my-posh/config.json";
+  programs.home-manager.enable = true;
 
   home.file.".config/nixpkgs/config.nix".source =
     config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/dotfiles/nix/config.nix";
 
+  home.file.".zshrc".source = config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/dotfiles/shell/.zshrc";
+
+  programs.oh-my-posh.enable = true;
+  home.file.".config/oh-my-posh/config.json".source =
+    config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/dotfiles/oh-my-posh/config.json";
+
+  programs.neovim.enable = true;
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/dotfiles/neovim";
 
-  programs.home-manager.enable = true;
+  programs.tmux.enable = true;
+  home.file.".tmux.conf".source = config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/dotfiles/tmux/.tmux.conf";
 
   programs.git = {
     enable = true;
