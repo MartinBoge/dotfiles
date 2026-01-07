@@ -3,6 +3,7 @@ vim.g.loaded_netrw = 1 -- Disable netrw
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard for all yank, delete, and paste operations (may require external provider on linux)
+vim.opt.autoread = true -- Reload files when changed outside of Neovim
 
 -- Theme (todo)
 local colors = vim.fn.json_decode(vim.fn.readfile(vim.fn.expand("~/dotfiles/colors.json")))
