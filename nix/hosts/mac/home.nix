@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  colors = builtins.fromJSON (builtins.readFile ../../../colors.json);
-in
 {
   home.stateVersion = "25.05";
 
@@ -13,8 +10,8 @@ in
     };
 
     settings = {
-      background = colors.bg;
-      foreground = colors.fg;
+      background = "#101828";
+      foreground = "#f9fafb";
     };
   };
 }

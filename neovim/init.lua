@@ -4,9 +4,9 @@ vim.g.loaded_netrwPlugin = 1 -- Disable netrw
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard for all yank, delete, and paste operations (may require external provider on linux)
 vim.opt.autoread = true -- Reload files when changed outside of Neovim
+vim.opt.cursorline = false -- Highlights the line where the cursor is at
 
--- Theme (todo)
-local colors = vim.fn.json_decode(vim.fn.readfile(vim.fn.expand("~/dotfiles/colors.json")))
+vim.cmd.colorscheme("martycolor")
 
 -- Key mappings: Leader
 vim.g.mapleader = " "
@@ -29,6 +29,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show diagnostics (under the cursor)" })
 vim.keymap.set("n", "<leader>db", vim.diagnostic.setloclist, { desc = "Buffer diagnostics" })
 vim.keymap.set("n", "<leader>da", vim.diagnostic.setqflist, { desc = "All diagnostics" })
+-- Key mappings: Refactor
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
 
 -- Tab and space defaults
 vim.opt.expandtab = true -- Use spaces instead of tabs
