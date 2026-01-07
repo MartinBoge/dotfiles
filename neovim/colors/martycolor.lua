@@ -14,6 +14,10 @@ local colors = {
 	dark_blue = "#1c398e", -- tw blue-900
 
 	gray = "#99a1af",
+
+	light_red = "#ffa2a2", -- tw red-300
+	red = "#c10007", -- tw red-700
+	dark_red = "#82181a", -- tw red-900
 }
 
 local set = vim.api.nvim_set_hl
