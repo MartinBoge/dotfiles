@@ -10,8 +10,8 @@
     };
 
     settings = {
-      background = "#101828";
-      foreground = "#f9fafb";
+      background = "#282828";
+      foreground = "#d4d4d4";
     };
   };
 }
