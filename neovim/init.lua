@@ -40,17 +40,17 @@ vim.opt.softtabstop = 4 -- Number of spaces that a <Tab> counts for while editin
 
 -- File type specific indentation
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "lua",
-	callback = function()
-		vim.opt_local.expandtab = false
-	end,
-})
-vim.api.nvim_create_autocmd("FileType", {
 	pattern = "nix",
 	callback = function()
 		vim.opt.shiftwidth = 2
 		vim.opt.tabstop = 2
 		vim.opt.softtabstop = 2
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "lua",
+	callback = function()
+		vim.opt_local.expandtab = false
 	end,
 })
 
@@ -78,10 +78,10 @@ require("lazy").setup({
 			lazy = false,
 			build = ":TSUpdate",
 			config = function()
-				require("nvim-treesitter").install({ "lua", "python", "nix" })
+				require("nvim-treesitter").install({ "nix", "lua", "python", "html" })
 
 				vim.api.nvim_create_autocmd("FileType", {
-					pattern = { "lua", "python", "nix" },
+					pattern = { "nix", "lua", "python", "html" },
 					callback = function()
 						vim.treesitter.start()
 					end,
@@ -133,6 +133,7 @@ require("lazy").setup({
 						"ruff_format",
 						"ruff_organize_imports",
 					},
+					html = { "prettier" },
 					markdown = { "prettier" },
 					yaml = { "prettier" },
 					json = { "prettier" },
