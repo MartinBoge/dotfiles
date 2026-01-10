@@ -10,6 +10,7 @@
     jq
     python3
     gcc
+    gnumake
     tree-sitter
 
     # Development
