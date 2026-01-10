@@ -158,9 +158,7 @@ set(0, "@constructor", { fg = colors.yellow })
 set(0, "@parameter", { fg = colors.sky })
 
 -- Keywords
--- Philosophy: blue = structural
---             lavender = exit/meta
--- Note: Some exit/meta keywords will be blue due to treesitter not being able to distinguish
+-- Structual are blue. Exit/meta are lavender.
 set(0, "@keyword", { fg = colors.blue })
 set(0, "@keyword.function", { fg = colors.blue })
 set(0, "@keyword.operator", { fg = colors.blue })
