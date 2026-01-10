@@ -5,32 +5,30 @@ vim.g.colors_name = "martycolor"
 vim.o.background = "dark"
 
 local colors = {
+	-- Base
 	bg = "#282828",
 	fg = "#e0e0e0",
 	border = "#364153",
 
-	light_blue = "#8ec5ff",
-	blue = "#2b7fff",
-	dark_blue = "#3F69D9",
+	-- UI variants
+	bg_light = "#32302f",
+	bg_lighter = "#3c3a39",
+	fg_dim = "#9ca3af",
+	fg_dark = "#6b7280",
 
-	gray = "#99a1af",
+	-- Core palette
+	blue = "#6b9fd4", -- keywords, structure
+	yellow = "#d4c484", -- functions, decorators
+	green = "#7dba87", -- types, modules
+	tan = "#d4a66a", -- strings
+	gold = "#d4b445", -- numbers, booleans, constants
+	lavender = "#b196d4", -- exit/meta
+	sky = "#8ec7d4", -- variables, properties
 
-	light_red = "#ffa2a2",
-	red = "#c10007",
-	dark_red = "#82181a",
-
-	purple = "#bc42c2",
-	dark_purple = "#8200db",
-
-	light_green = "#C4FFC9",
-	green = "#47D69A",
-
-	light_brown = "#C28D70",
-
-	light_yellow = "#ffde3b",
-	yellow = "#daac00",
-
-	orange = "#E89346",
+	-- Diagnostics
+	red = "#d47878",
+	orange = "#d49a5c",
+	cyan = "#5db8c4",
 }
 
 local set = vim.api.nvim_set_hl
@@ -39,187 +37,257 @@ local set = vim.api.nvim_set_hl
 -- EDITOR UI
 -- ============================================================================
 set(0, "Normal", { fg = colors.fg, bg = colors.bg })
--- set(0, "NormalFloat", { fg = ..., bg = ... })
--- set(0, "FloatBorder", { fg = ..., bg = ... })
--- set(0, "FloatTitle", { fg = ..., bg = ..., bold = true })
+set(0, "NormalFloat", { fg = colors.fg, bg = colors.bg_light })
+set(0, "FloatBorder", { fg = colors.border, bg = colors.bg_light })
+set(0, "FloatTitle", { fg = colors.yellow, bg = colors.bg_light, bold = true })
 
 -- Cursor & Lines
--- set(0, "Cursor", { fg = ..., bg = ... })
--- set(0, "CursorLine", { bg = ... })
--- set(0, "CursorColumn", { bg = ... })
--- set(0, "ColorColumn", { bg = ... })
-set(0, "LineNr", { fg = colors.gray, bold = true })
--- set(0, "LineNrAbove", { fg = ... })
--- set(0, "LineNrBelow", { fg = ... })
-set(0, "CursorLineNr", { fg = colors.light_blue, bold = true })
+set(0, "Cursor", { fg = colors.bg, bg = colors.fg })
+set(0, "CursorLine", { bg = colors.bg_light })
+set(0, "CursorColumn", { bg = colors.bg_light })
+set(0, "ColorColumn", { bg = colors.bg_light })
+set(0, "LineNr", { fg = colors.fg_dark })
+set(0, "CursorLineNr", { fg = colors.yellow, bold = true })
+set(0, "SignColumn", { bg = colors.bg })
 
 -- Selection & Search
--- set(0, "Visual", { bg = ... })
--- set(0, "VisualNOS", { bg = ... })
--- set(0, "Search", { fg = ..., bg = ... })
--- set(0, "IncSearch", { fg = ..., bg = ... })
--- set(0, "CurSearch", { fg = ..., bg = ... })
+set(0, "Visual", { bg = colors.bg_lighter })
+set(0, "VisualNOS", { bg = colors.bg_lighter })
+set(0, "Search", { fg = colors.bg, bg = colors.gold })
+set(0, "IncSearch", { fg = colors.bg, bg = colors.blue })
+set(0, "CurSearch", { fg = colors.bg, bg = colors.blue })
+set(0, "Substitute", { fg = colors.bg, bg = colors.red })
 
 -- Statusline & Tabline
--- set(0, "StatusLine", { fg = ..., bg = ... })
--- set(0, "StatusLineNC", { fg = ..., bg = ... })
--- set(0, "TabLine", { fg = ..., bg = ... })
--- set(0, "TabLineFill", { bg = ... })
--- set(0, "TabLineSel", { fg = ..., bg = ..., bold = true })
+set(0, "StatusLine", { fg = colors.fg, bg = colors.bg_light })
+set(0, "StatusLineNC", { fg = colors.fg_dark, bg = colors.bg_light })
+set(0, "TabLine", { fg = colors.fg_dark, bg = colors.bg_light })
+set(0, "TabLineFill", { bg = colors.bg_light })
+set(0, "TabLineSel", { fg = colors.fg, bg = colors.bg, bold = true })
+set(0, "WinSeparator", { fg = colors.border })
 
 -- Popup Menu (completion)
--- set(0, "Pmenu", { fg = ..., bg = ... })
--- set(0, "PmenuSel", { fg = ..., bg = ... })
--- set(0, "PmenuSbar", { bg = ... })
--- set(0, "PmenuThumb", { bg = ... })
+set(0, "Pmenu", { fg = colors.fg, bg = colors.bg_light })
+set(0, "PmenuSel", { fg = colors.fg, bg = colors.bg_lighter })
+set(0, "PmenuSbar", { bg = colors.bg_lighter })
+set(0, "PmenuThumb", { bg = colors.fg_dark })
+
+-- Misc UI
+set(0, "Directory", { fg = colors.blue })
+set(0, "Title", { fg = colors.yellow, bold = true })
+set(0, "MatchParen", { fg = colors.gold, bold = true })
+set(0, "NonText", { fg = colors.fg_dark })
+set(0, "SpecialKey", { fg = colors.fg_dark })
+set(0, "Folded", { fg = colors.fg_dark, bg = colors.bg_light })
+set(0, "FoldColumn", { fg = colors.fg_dark, bg = colors.bg })
 
 -- ============================================================================
 -- SYNTAX (Traditional groups)
 -- ============================================================================
-set(0, "Comment", { fg = colors.gray, italic = true })
-set(0, "String", { fg = colors.light_brown })
--- set(0, "Character", { fg = ... })
-set(0, "Number", { fg = colors.light_green })
-set(0, "Boolean", { fg = colors.dark_blue })
--- set(0, "Float", { fg = ... })
+set(0, "Comment", { fg = colors.fg_dark, italic = true })
+set(0, "String", { fg = colors.tan })
+set(0, "Character", { fg = colors.tan })
+set(0, "Number", { fg = colors.gold })
+set(0, "Boolean", { fg = colors.gold })
+set(0, "Float", { fg = colors.gold })
 
-set(0, "Identifier", { fg = colors.light_blue })
-set(0, "Constant", { fg = colors.orange })
-set(0, "Function", { fg = colors.light_yellow })
---
-set(0, "Statement", { fg = colors.dark_blue })
--- set(0, "Conditional", { fg = ... })
--- set(0, "Repeat", { fg = ... })
--- set(0, "Label", { fg = ... })
--- set(0, "Operator", { fg = ... })
--- set(0, "Keyword", { fg = ... })
--- set(0, "Exception", { fg = ... })
---
--- set(0, "PreProc", { fg = ... })
-set(0, "Include", { fg = colors.purple })
--- set(0, "Define", { fg = ... })
--- set(0, "Macro", { fg = ... })
--- set(0, "PreCondit", { fg = ... })
---
+set(0, "Identifier", { fg = colors.sky })
+set(0, "Function", { fg = colors.yellow })
+
+set(0, "Statement", { fg = colors.blue })
+set(0, "Conditional", { fg = colors.blue })
+set(0, "Repeat", { fg = colors.blue })
+set(0, "Label", { fg = colors.blue })
+set(0, "Operator", { fg = colors.fg_dim })
+set(0, "Keyword", { fg = colors.blue })
+set(0, "Exception", { fg = colors.blue })
+
+set(0, "PreProc", { fg = colors.lavender })
+set(0, "Include", { fg = colors.lavender })
+set(0, "Define", { fg = colors.lavender })
+set(0, "Macro", { fg = colors.lavender })
+set(0, "PreCondit", { fg = colors.lavender })
+
 set(0, "Type", { fg = colors.green })
--- set(0, "StorageClass", { fg = ... })
--- set(0, "Structure", { fg = ... })
--- set(0, "Typedef", { fg = ... })
---
--- set(0, "Special", { fg = ... })
--- set(0, "SpecialChar", { fg = ... })
--- set(0, "Tag", { fg = ... })
-set(0, "Delimiter", { fg = colors.yellow })
--- set(0, "SpecialComment", { fg = ... })
--- set(0, "Debug", { fg = ... })
---
--- set(0, "Underlined", { underline = true })
--- set(0, "Error", { fg = ... })
--- set(0, "Todo", { fg = ..., bold = true })
+set(0, "StorageClass", { fg = colors.blue })
+set(0, "Structure", { fg = colors.green })
+set(0, "Typedef", { fg = colors.green })
+
+set(0, "Special", { fg = colors.lavender })
+set(0, "SpecialChar", { fg = colors.gold })
+set(0, "Tag", { fg = colors.blue })
+set(0, "Delimiter", { fg = colors.fg_dim })
+set(0, "SpecialComment", { fg = colors.fg_dark, italic = true })
+set(0, "Debug", { fg = colors.red })
+
+set(0, "Underlined", { underline = true })
+set(0, "Error", { fg = colors.red })
+set(0, "Todo", { fg = colors.gold, bold = true })
+set(0, "Constant", { fg = colors.gold })
 
 -- ============================================================================
--- TREESITTER (Link to traditional groups)
+-- TREESITTER
 -- ============================================================================
 -- Comments
--- set(0, "@comment", { link = "Comment" })
--- set(0, "@comment.documentation", { link = "Comment" })
+set(0, "@comment", { link = "Comment" })
+set(0, "@comment.documentation", { link = "Comment" })
 
--- Constants
-set(0, "@constant", { link = "Constant" })
--- set(0, "@constant.builtin", { link = "Special" })
--- set(0, "@constant.macro", { link = "Define" })
+-- Constants (literal values, grouped with numbers/booleans)
+set(0, "@constant", { fg = colors.gold })
+set(0, "@constant.builtin", { fg = colors.gold })
+set(0, "@constant.macro", { fg = colors.lavender })
 
 -- Strings
--- set(0, "@string", { link = "String" })
--- set(0, "@string.escape", { link = "SpecialChar" })
--- set(0, "@string.special", { link = "SpecialChar" })
--- set(0, "@character", { link = "Character" })
+set(0, "@string", { link = "String" })
+set(0, "@string.escape", { fg = colors.gold })
+set(0, "@string.special", { fg = colors.gold })
+set(0, "@string.regex", { fg = colors.gold })
+set(0, "@character", { link = "Character" })
 set(0, "@number", { link = "Number" })
 set(0, "@boolean", { link = "Boolean" })
--- set(0, "@float", { link = "Float" })
+set(0, "@float", { link = "Float" })
 
 -- Functions
--- set(0, "@function", { link = "Function" })
--- set(0, "@function.builtin", { link = "Special" })
--- set(0, "@function.call", { link = "Function" })
--- set(0, "@function.macro", { link = "Macro" })
--- set(0, "@method", { link = "Function" })
--- set(0, "@method.call", { link = "Function" })
--- set(0, "@constructor", { link = "Special" })
-set(0, "@parameter", { link = "Identifier" })
+set(0, "@function", { fg = colors.yellow })
+set(0, "@function.builtin", { fg = colors.yellow })
+set(0, "@function.call", { fg = colors.yellow })
+set(0, "@function.macro", { fg = colors.lavender })
+set(0, "@method", { fg = colors.yellow })
+set(0, "@method.call", { fg = colors.yellow })
+set(0, "@constructor", { fg = colors.yellow })
+set(0, "@parameter", { fg = colors.sky })
 
 -- Keywords
--- set(0, "@keyword", { link = "Keyword" })
--- set(0, "@keyword.function", { link = "Keyword" })
--- set(0, "@keyword.operator", { link = "Operator" })
--- set(0, "@keyword.return", { link = "Keyword" })
--- set(0, "@conditional", { link = "Conditional" })
--- set(0, "@repeat", { link = "Repeat" })
--- set(0, "@label", { link = "Label" })
--- set(0, "@operator", { link = "Operator" })
--- set(0, "@exception", { link = "Exception" })
+-- Philosophy: blue = structural
+--             lavender = exit/meta
+-- Note: Some exit/meta keywords will be blue due to treesitter not being able to distinguish
+set(0, "@keyword", { fg = colors.blue })
+set(0, "@keyword.function", { fg = colors.blue })
+set(0, "@keyword.operator", { fg = colors.blue })
+set(0, "@keyword.return", { fg = colors.lavender })
+set(0, "@keyword.import", { fg = colors.lavender })
+set(0, "@keyword.export", { fg = colors.lavender })
+set(0, "@keyword.conditional", { fg = colors.blue })
+set(0, "@keyword.repeat", { fg = colors.blue })
+set(0, "@keyword.exception", { fg = colors.blue })
+set(0, "@keyword.coroutine", { fg = colors.blue })
+set(0, "@keyword.type", { fg = colors.blue })
+set(0, "@conditional", { fg = colors.blue })
+set(0, "@repeat", { fg = colors.blue })
+set(0, "@label", { fg = colors.blue })
+set(0, "@operator", { fg = colors.fg_dim })
+set(0, "@exception", { fg = colors.blue })
 
 -- Types
--- set(0, "@type", { link = "Type" })
--- set(0, "@type.builtin", { link = "Type" })
--- set(0, "@type.definition", { link = "Typedef" })
--- set(0, "@storageclass", { link = "StorageClass" })
-set(0, "@namespace", { link = "Identifier" })
-set(0, "@include", { link = "Include" })
-set(0, "@keyword.import", { link = "Include" })
--- set(0, "@preproc", { link = "PreProc" })
+set(0, "@type", { fg = colors.green })
+set(0, "@type.builtin", { fg = colors.green })
+set(0, "@type.definition", { fg = colors.green })
+set(0, "@storageclass", { fg = colors.blue })
+set(0, "@namespace", { fg = colors.green })
+set(0, "@module", { fg = colors.green })
+set(0, "@include", { fg = colors.lavender })
+set(0, "@preproc", { fg = colors.lavender })
 
 -- Variables
-set(0, "@variable", { link = "Identifier" })
--- set(0, "@variable.builtin", { link = "Special" })
-set(0, "@property", { link = "Identifier" })
-set(0, "@field", { link = "Identifier" })
+set(0, "@variable", { fg = colors.sky })
+set(0, "@variable.builtin", { fg = colors.sky })
+set(0, "@variable.parameter", { fg = colors.sky })
+set(0, "@variable.member", { fg = colors.sky })
+set(0, "@property", { fg = colors.sky })
+set(0, "@field", { fg = colors.sky })
 
--- Text (for markup languages)
--- set(0, "@text", { link = "Normal" })
--- set(0, "@text.strong", { bold = true })
--- set(0, "@text.emphasis", { italic = true })
--- set(0, "@text.underline", { underline = true })
--- set(0, "@text.title", { link = "Title" })
--- set(0, "@text.literal", { link = "String" })
--- set(0, "@text.uri", { link = "Underlined" })
+-- Decorators / Attributes (treated as function calls)
+set(0, "@attribute", { fg = colors.yellow })
+set(0, "@attribute.builtin", { fg = colors.yellow })
 
 -- Punctuation
--- set(0, "@punctuation.delimiter", { link = "Delimiter" })
--- set(0, "@punctuation.bracket", { link = "Delimiter" })
--- set(0, "@punctuation.special", { link = "Delimiter" })
+set(0, "@punctuation.delimiter", { fg = colors.fg_dim })
+set(0, "@punctuation.bracket", { fg = colors.fg_dim })
+set(0, "@punctuation.special", { fg = colors.fg_dim })
 
 -- Tags (HTML/XML/JSX)
--- set(0, "@tag", { link = "Tag" })
-set(0, "@tag.attribute", { link = "Identifier" })
--- set(0, "@tag.delimiter", { link = "Delimiter" })
+set(0, "@tag", { fg = colors.blue })
+set(0, "@tag.attribute", { fg = colors.sky })
+set(0, "@tag.delimiter", { fg = colors.fg_dim })
 
-set(0, "@attribute", { link = "Function" })
-
--- ============================================================================
--- LSP / DIAGNOSTICS
--- ============================================================================
--- set(0, "DiagnosticError", { fg = ... })
--- set(0, "DiagnosticWarn", { fg = ... })
--- set(0, "DiagnosticInfo", { fg = ... })
--- set(0, "DiagnosticHint", { fg = ... })
---
--- set(0, "DiagnosticUnderlineError", { undercurl = true, sp = ... })
--- set(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = ... })
--- set(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = ... })
--- set(0, "DiagnosticUnderlineHint", { undercurl = true, sp = ... })
+-- Text (for markup languages)
+set(0, "@text", { fg = colors.fg })
+set(0, "@text.strong", { bold = true })
+set(0, "@text.emphasis", { italic = true })
+set(0, "@text.underline", { underline = true })
+set(0, "@text.strike", { strikethrough = true })
+set(0, "@text.title", { fg = colors.yellow, bold = true })
+set(0, "@text.literal", { fg = colors.tan })
+set(0, "@text.uri", { fg = colors.cyan, underline = true })
+set(0, "@text.reference", { fg = colors.lavender })
 
 -- ============================================================================
--- GIT SIGNS (if using gitsigns.nvim)
+-- LSP SEMANTIC TOKENS
 -- ============================================================================
--- set(0, "GitSignsAdd", { fg = ... })
--- set(0, "GitSignsChange", { fg = ... })
--- set(0, "GitSignsDelete", { fg = ... })
+set(0, "@lsp.type.class", { fg = colors.green })
+set(0, "@lsp.type.decorator", { fg = colors.yellow })
+set(0, "@lsp.type.enum", { fg = colors.green })
+set(0, "@lsp.type.enumMember", { fg = colors.lavender })
+set(0, "@lsp.type.function", { fg = colors.yellow })
+set(0, "@lsp.type.interface", { fg = colors.green })
+set(0, "@lsp.type.macro", { fg = colors.lavender })
+set(0, "@lsp.type.method", { fg = colors.yellow })
+set(0, "@lsp.type.namespace", { fg = colors.green })
+set(0, "@lsp.type.parameter", { fg = colors.sky })
+set(0, "@lsp.type.property", { fg = colors.sky })
+set(0, "@lsp.type.struct", { fg = colors.green })
+set(0, "@lsp.type.type", { fg = colors.green })
+set(0, "@lsp.type.typeParameter", { fg = colors.green })
+set(0, "@lsp.type.variable", { fg = colors.sky })
+
+-- ============================================================================
+-- DIAGNOSTICS
+-- ============================================================================
+set(0, "DiagnosticError", { fg = colors.red })
+set(0, "DiagnosticWarn", { fg = colors.orange })
+set(0, "DiagnosticInfo", { fg = colors.cyan })
+set(0, "DiagnosticHint", { fg = colors.fg_dark })
+
+set(0, "DiagnosticUnderlineError", { undercurl = true, sp = colors.red })
+set(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = colors.orange })
+set(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = colors.cyan })
+set(0, "DiagnosticUnderlineHint", { undercurl = true, sp = colors.fg_dark })
+
+set(0, "DiagnosticVirtualTextError", { fg = colors.red })
+set(0, "DiagnosticVirtualTextWarn", { fg = colors.orange })
+set(0, "DiagnosticVirtualTextInfo", { fg = colors.cyan })
+set(0, "DiagnosticVirtualTextHint", { fg = colors.fg_dark })
+
+-- ============================================================================
+-- GIT SIGNS
+-- ============================================================================
+set(0, "GitSignsAdd", { fg = colors.green })
+set(0, "GitSignsChange", { fg = colors.blue })
+set(0, "GitSignsDelete", { fg = colors.red })
 
 -- ============================================================================
 -- DIFF
 -- ============================================================================
--- set(0, "DiffAdd", { fg = ..., bg = ... })
--- set(0, "DiffChange", { fg = ..., bg = ... })
--- set(0, "DiffDelete", { fg = ..., bg = ... })
--- set(0, "DiffText", { fg = ..., bg = ... })
+set(0, "DiffAdd", { bg = "#2a3a2a" })
+set(0, "DiffChange", { bg = "#2a2a3a" })
+set(0, "DiffDelete", { bg = "#3a2a2a" })
+set(0, "DiffText", { bg = "#3a3a4a" })
+
+-- ============================================================================
+-- LANGUAGE SPECIFIC: Markdown
+-- ============================================================================
+set(0, "@markup.heading", { fg = colors.yellow, bold = true })
+set(0, "@markup.heading.1", { fg = colors.yellow, bold = true })
+set(0, "@markup.heading.2", { fg = colors.yellow, bold = true })
+set(0, "@markup.heading.3", { fg = colors.yellow, bold = true })
+set(0, "@markup.link", { fg = colors.lavender })
+set(0, "@markup.link.url", { fg = colors.cyan, underline = true })
+set(0, "@markup.raw", { fg = colors.tan })
+set(0, "@markup.list", { fg = colors.fg_dim })
+
+-- ============================================================================
+-- LANGUAGE SPECIFIC: HTML/JSX
+-- ============================================================================
+set(0, "@tag.html", { fg = colors.blue })
+set(0, "@tag.tsx", { fg = colors.blue })
+set(0, "@tag.javascript", { fg = colors.blue })
