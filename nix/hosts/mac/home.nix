@@ -11,7 +11,7 @@
 
     settings = {
       background = "#282828";
-      foreground = "#d4d4d4";
+      foreground = "#e0e0e0";
     };
   };
 }
