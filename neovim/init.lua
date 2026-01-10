@@ -228,6 +228,37 @@ require("lazy").setup({
 				{ "<leader>e", "<cmd>Neotree<cr>", desc = "Open file explorer" },
 				{ "<leader>E", "<cmd>Neotree reveal<cr>", desc = "Reveal current file in explorer" },
 			},
+			config = function(_, opts)
+				require("neo-tree").setup(opts)
+
+				-- Open neo-tree when deleting the last buffer
+				vim.api.nvim_create_autocmd("BufDelete", {
+					callback = function()
+						vim.schedule(function()
+							local has_content = false
+							local empty_bufs = {}
+
+							for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+								if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted then
+									local name = vim.fn.bufname(buf)
+									if name ~= "" then
+										has_content = true
+									elseif vim.bo[buf].buftype == "" and not vim.bo[buf].modified then
+										table.insert(empty_bufs, buf)
+									end
+								end
+							end
+
+							if not has_content then
+								vim.cmd("Neotree")
+								for _, buf in ipairs(empty_bufs) do
+									vim.api.nvim_buf_delete(buf, { force = false })
+								end
+							end
+						end)
+					end,
+				})
+			end,
 		},
 		{
 			"nvim-lualine/lualine.nvim",
@@ -301,30 +332,15 @@ vim.lsp.config["pyright"] = {
 }
 vim.lsp.enable("pyright")
 
--- Open neo-tree when deleting the last buffer
-vim.api.nvim_create_autocmd("BufDelete", {
-	callback = function()
-		vim.schedule(function()
-			local has_content = false
-			local empty_bufs = {}
-
-			for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-				if vim.api.nvim_buf_is_valid(buf) and vim.bo[buf].buflisted then
-					local name = vim.fn.bufname(buf)
-					if name ~= "" then
-						has_content = true
-					elseif vim.bo[buf].buftype == "" and not vim.bo[buf].modified then
-						table.insert(empty_bufs, buf)
-					end
-				end
-			end
-
-			if not has_content then
-				vim.cmd("Neotree")
-				for _, buf in ipairs(empty_bufs) do
-					vim.api.nvim_buf_delete(buf, { force = false })
-				end
-			end
-		end)
-	end,
-})
+vim.lsp.config["html"] = {
+	cmd = { "vscode-html-language-server", "--stdio" },
+	filetypes = { "html", "templ" },
+	root_markers = { "package.json", ".git" },
+	settings = {},
+	init_options = {
+		provideFormatter = true,
+		embeddedLanguages = { css = true, javascript = true },
+		configurationSection = { "html", "css", "javascript" },
+	},
+}
+vim.lsp.enable("html")
