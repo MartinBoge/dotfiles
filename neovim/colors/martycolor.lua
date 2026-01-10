@@ -5,12 +5,12 @@ vim.g.colors_name = "martycolor"
 vim.o.background = "dark"
 
 local colors = {
-	bg = "#101828",
-	fg = "#f9fafb",
+	bg = "#282828",
+	fg = "#e0e0e0",
 	border = "#364153",
 
 	light_blue = "#8ec5ff", -- tw blue-300
-	blue = "#1447e6", -- tw blue-700
+	blue = "#2b7fff", -- tw blue-500
 	dark_blue = "#1c398e", -- tw blue-900
 
 	gray = "#99a1af",
@@ -18,6 +18,12 @@ local colors = {
 	light_red = "#ffa2a2", -- tw red-300
 	red = "#c10007", -- tw red-700
 	dark_red = "#82181a", -- tw red-900
+
+	purple = "#ad46ff", -- tw purple-500
+	dark_purple = "#8200db", -- tw purple-700
+
+	light_green = "#7bf1a8", -- tw green-300
+	green = "#05df72", -- tw green-400
 }
 
 local set = vim.api.nvim_set_hl
@@ -70,7 +76,8 @@ set(0, "CursorLineNr", { fg = colors.light_blue, bold = true })
 -- set(0, "Boolean", { fg = ... })
 -- set(0, "Float", { fg = ... })
 
--- set(0, "Identifier", { fg = ... })
+set(0, "Identifier", { fg = colors.light_blue })
+set(0, "Constant", { fg = colors.blue })
 -- set(0, "Function", { fg = ... })
 --
 -- set(0, "Statement", { fg = ... })
@@ -82,12 +89,12 @@ set(0, "CursorLineNr", { fg = colors.light_blue, bold = true })
 -- set(0, "Exception", { fg = ... })
 --
 -- set(0, "PreProc", { fg = ... })
--- set(0, "Include", { fg = ... })
+set(0, "Include", { fg = colors.purple })
 -- set(0, "Define", { fg = ... })
 -- set(0, "Macro", { fg = ... })
 -- set(0, "PreCondit", { fg = ... })
 --
--- set(0, "Type", { fg = ... })
+set(0, "Type", { fg = colors.light_green })
 -- set(0, "StorageClass", { fg = ... })
 -- set(0, "Structure", { fg = ... })
 -- set(0, "Typedef", { fg = ... })
@@ -111,7 +118,7 @@ set(0, "CursorLineNr", { fg = colors.light_blue, bold = true })
 -- set(0, "@comment.documentation", { link = "Comment" })
 
 -- Constants
--- set(0, "@constant", { link = "Constant" })
+set(0, "@constant", { link = "Constant" })
 -- set(0, "@constant.builtin", { link = "Special" })
 -- set(0, "@constant.macro", { link = "Define" })
 
@@ -132,7 +139,7 @@ set(0, "CursorLineNr", { fg = colors.light_blue, bold = true })
 -- set(0, "@method", { link = "Function" })
 -- set(0, "@method.call", { link = "Function" })
 -- set(0, "@constructor", { link = "Special" })
--- set(0, "@parameter", { link = "Identifier" })
+set(0, "@parameter", { link = "Identifier" })
 
 -- Keywords
 -- set(0, "@keyword", { link = "Keyword" })
@@ -150,15 +157,16 @@ set(0, "CursorLineNr", { fg = colors.light_blue, bold = true })
 -- set(0, "@type.builtin", { link = "Type" })
 -- set(0, "@type.definition", { link = "Typedef" })
 -- set(0, "@storageclass", { link = "StorageClass" })
--- set(0, "@namespace", { link = "Identifier" })
--- set(0, "@include", { link = "Include" })
+set(0, "@namespace", { link = "Identifier" })
+set(0, "@include", { link = "Include" })
+set(0, "@keyword.import", { link = "Include" })
 -- set(0, "@preproc", { link = "PreProc" })
 
 -- Variables
--- set(0, "@variable", { link = "Identifier" })
+set(0, "@variable", { link = "Identifier" })
 -- set(0, "@variable.builtin", { link = "Special" })
--- set(0, "@property", { link = "Identifier" })
--- set(0, "@field", { link = "Identifier" })
+set(0, "@property", { link = "Identifier" })
+set(0, "@field", { link = "Identifier" })
 
 -- Text (for markup languages)
 -- set(0, "@text", { link = "Normal" })
@@ -176,7 +184,7 @@ set(0, "CursorLineNr", { fg = colors.light_blue, bold = true })
 
 -- Tags (HTML/XML/JSX)
 -- set(0, "@tag", { link = "Tag" })
--- set(0, "@tag.attribute", { link = "Identifier" })
+set(0, "@tag.attribute", { link = "Identifier" })
 -- set(0, "@tag.delimiter", { link = "Delimiter" })
 
 -- ============================================================================
