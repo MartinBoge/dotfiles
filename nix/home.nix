@@ -13,6 +13,7 @@
     gnumake
     docker
     tree-sitter
+    vscode-langservers-extracted
 
     # Development
     uv
