@@ -11,6 +11,7 @@
     python3
     gcc
     gnumake
+    docker
     tree-sitter
 
     # Development
