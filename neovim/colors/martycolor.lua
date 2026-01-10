@@ -9,21 +9,28 @@ local colors = {
 	fg = "#e0e0e0",
 	border = "#364153",
 
-	light_blue = "#8ec5ff", -- tw blue-300
-	blue = "#2b7fff", -- tw blue-500
-	dark_blue = "#1c398e", -- tw blue-900
+	light_blue = "#8ec5ff",
+	blue = "#2b7fff",
+	dark_blue = "#3F69D9",
 
 	gray = "#99a1af",
 
-	light_red = "#ffa2a2", -- tw red-300
-	red = "#c10007", -- tw red-700
-	dark_red = "#82181a", -- tw red-900
+	light_red = "#ffa2a2",
+	red = "#c10007",
+	dark_red = "#82181a",
 
-	purple = "#ad46ff", -- tw purple-500
-	dark_purple = "#8200db", -- tw purple-700
+	purple = "#bc42c2",
+	dark_purple = "#8200db",
 
-	light_green = "#7bf1a8", -- tw green-300
-	green = "#05df72", -- tw green-400
+	light_green = "#C4FFC9",
+	green = "#47D69A",
+
+	light_brown = "#C28D70",
+
+	light_yellow = "#ffde3b",
+	yellow = "#daac00",
+
+	orange = "#E89346",
 }
 
 local set = vim.api.nvim_set_hl
@@ -69,18 +76,18 @@ set(0, "CursorLineNr", { fg = colors.light_blue, bold = true })
 -- ============================================================================
 -- SYNTAX (Traditional groups)
 -- ============================================================================
--- set(0, "Comment", { fg = ..., italic = true })
--- set(0, "String", { fg = ... })
+set(0, "Comment", { fg = colors.gray, italic = true })
+set(0, "String", { fg = colors.light_brown })
 -- set(0, "Character", { fg = ... })
--- set(0, "Number", { fg = ... })
--- set(0, "Boolean", { fg = ... })
+set(0, "Number", { fg = colors.light_green })
+set(0, "Boolean", { fg = colors.dark_blue })
 -- set(0, "Float", { fg = ... })
 
 set(0, "Identifier", { fg = colors.light_blue })
-set(0, "Constant", { fg = colors.blue })
--- set(0, "Function", { fg = ... })
+set(0, "Constant", { fg = colors.orange })
+set(0, "Function", { fg = colors.light_yellow })
 --
--- set(0, "Statement", { fg = ... })
+set(0, "Statement", { fg = colors.dark_blue })
 -- set(0, "Conditional", { fg = ... })
 -- set(0, "Repeat", { fg = ... })
 -- set(0, "Label", { fg = ... })
@@ -94,7 +101,7 @@ set(0, "Include", { fg = colors.purple })
 -- set(0, "Macro", { fg = ... })
 -- set(0, "PreCondit", { fg = ... })
 --
-set(0, "Type", { fg = colors.light_green })
+set(0, "Type", { fg = colors.green })
 -- set(0, "StorageClass", { fg = ... })
 -- set(0, "Structure", { fg = ... })
 -- set(0, "Typedef", { fg = ... })
@@ -102,7 +109,7 @@ set(0, "Type", { fg = colors.light_green })
 -- set(0, "Special", { fg = ... })
 -- set(0, "SpecialChar", { fg = ... })
 -- set(0, "Tag", { fg = ... })
--- set(0, "Delimiter", { fg = ... })
+set(0, "Delimiter", { fg = colors.yellow })
 -- set(0, "SpecialComment", { fg = ... })
 -- set(0, "Debug", { fg = ... })
 --
@@ -127,8 +134,8 @@ set(0, "@constant", { link = "Constant" })
 -- set(0, "@string.escape", { link = "SpecialChar" })
 -- set(0, "@string.special", { link = "SpecialChar" })
 -- set(0, "@character", { link = "Character" })
--- set(0, "@number", { link = "Number" })
--- set(0, "@boolean", { link = "Boolean" })
+set(0, "@number", { link = "Number" })
+set(0, "@boolean", { link = "Boolean" })
 -- set(0, "@float", { link = "Float" })
 
 -- Functions
@@ -186,6 +193,8 @@ set(0, "@field", { link = "Identifier" })
 -- set(0, "@tag", { link = "Tag" })
 set(0, "@tag.attribute", { link = "Identifier" })
 -- set(0, "@tag.delimiter", { link = "Delimiter" })
+
+set(0, "@attribute", { link = "Function" })
 
 -- ============================================================================
 -- LSP / DIAGNOSTICS
