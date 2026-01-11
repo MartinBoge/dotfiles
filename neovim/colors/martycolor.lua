@@ -204,7 +204,7 @@ set(0, "@punctuation.bracket", { fg = colors.fg_dim })
 set(0, "@punctuation.special", { fg = colors.fg_dim })
 
 -- Tags (HTML/XML/JSX)
-set(0, "@tag", { fg = colors.blue })
+set(0, "@tag", { fg = colors.green })
 set(0, "@tag.attribute", { fg = colors.sky })
 set(0, "@tag.delimiter", { fg = colors.fg_dim })
 

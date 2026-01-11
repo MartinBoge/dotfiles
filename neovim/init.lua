@@ -78,10 +78,29 @@ require("lazy").setup({
 			lazy = false,
 			build = ":TSUpdate",
 			config = function()
-				require("nvim-treesitter").install({ "nix", "lua", "python", "html" })
+				require("nvim-treesitter").install({
+					"nix",
+					"lua",
+					"python",
+					"html",
+					"javascript",
+					"typescript",
+					"svelte",
+					"tsx",
+				})
 
 				vim.api.nvim_create_autocmd("FileType", {
-					pattern = { "nix", "lua", "python", "html" },
+					pattern = {
+						"nix",
+						"lua",
+						"python",
+						"html",
+						"javascript",
+						"typescript",
+						"svelte",
+						"javascriptreact",
+						"typescriptreact",
+					},
 					callback = function()
 						vim.treesitter.start()
 					end,
@@ -134,6 +153,11 @@ require("lazy").setup({
 						"ruff_organize_imports",
 					},
 					html = { "prettier" },
+					javascript = { "prettier" },
+					typescript = { "prettier" },
+					svelte = { "prettier" },
+					javascriptreact = { "prettier" },
+					typescriptreact = { "prettier" },
 					markdown = { "prettier" },
 					yaml = { "prettier" },
 					json = { "prettier" },
@@ -285,62 +309,5 @@ require("lazy").setup({
 	},
 })
 
-vim.lsp.config["nixd"] = {
-	{
-		cmd = { "nixd" },
-		filetypes = { "nix" },
-		root_markers = { "flake.nix", ".git" },
-	},
-}
-vim.lsp.enable("nixd")
-
-vim.lsp.config["lua_ls"] = {
-	cmd = { "lua-language-server" },
-	filetypes = { "lua" },
-	root_markers = { { ".luarc.json", ".luarc.jsonc" }, ".git" },
-	settings = {
-		Lua = {
-			runtime = {
-				version = "LuaJIT",
-			},
-		},
-	},
-}
-vim.lsp.enable("lua_ls")
-
-vim.lsp.config["pyright"] = {
-	cmd = { "pyright-langserver", "--stdio" },
-	filetypes = { "python" },
-	root_markers = {
-		"pyrightconfig.json",
-		"pyproject.toml",
-		"setup.py",
-		"setup.cfg",
-		"requirements.txt",
-		"Pipfile",
-		".git",
-	},
-	settings = {
-		python = {
-			analysis = {
-				autoSearchPaths = true,
-				useLibraryCodeForTypes = true,
-				diagnosticMode = "openFilesOnly",
-			},
-		},
-	},
-}
-vim.lsp.enable("pyright")
-
-vim.lsp.config["html"] = {
-	cmd = { "vscode-html-language-server", "--stdio" },
-	filetypes = { "html", "templ" },
-	root_markers = { "package.json", ".git" },
-	settings = {},
-	init_options = {
-		provideFormatter = true,
-		embeddedLanguages = { css = true, javascript = true },
-		configurationSection = { "html", "css", "javascript" },
-	},
-}
-vim.lsp.enable("html")
+-- Configs at: https://github.com/neovim/nvim-lspconfig
+vim.lsp.enable({ "nixd", "lua_ls", "pyright", "html", "ts_ls", "svelte" })
