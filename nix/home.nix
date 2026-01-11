@@ -33,6 +33,9 @@
     pyright
     ruff
     prettier
+    typescript-language-server
+    typescript
+    svelte-language-server
   ];
 
   programs.home-manager.enable = true;
