@@ -12,6 +12,7 @@
     gcc
     gnumake
     docker
+    postgresql_16
     tree-sitter
     vscode-langservers-extracted
 
@@ -22,7 +23,6 @@
     azure-cli
     azure-storage-azcopy
     terraform
-    libpq
     claude-code
 
     # LSPs and formatters
