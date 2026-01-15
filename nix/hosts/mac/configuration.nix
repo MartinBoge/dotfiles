@@ -24,6 +24,7 @@
       "ghostty"
       "fork"
       "docker-desktop"
+      "pgadmin4"
       "font-jetbrains-mono-nerd-font"
       "visual-studio-code"
       "keepingyouawake"
