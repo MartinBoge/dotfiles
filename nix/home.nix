@@ -13,6 +13,7 @@
     gnumake
     docker
     postgresql_16
+    pgadmin4
     tree-sitter
     vscode-langservers-extracted
 
