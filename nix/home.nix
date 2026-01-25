@@ -16,6 +16,8 @@
     pgadmin4
     tree-sitter
     vscode-langservers-extracted
+    pandoc
+    texliveMedium
 
     # Development
     uv
