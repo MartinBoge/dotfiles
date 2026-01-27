@@ -28,6 +28,7 @@
     terraform
     claude-code
     go
+    air
 
     # LSPs and formatters
     nixd
@@ -40,6 +41,7 @@
     typescript-language-server
     typescript
     svelte-language-server
+    gopls
   ];
 
   programs.home-manager.enable = true;
