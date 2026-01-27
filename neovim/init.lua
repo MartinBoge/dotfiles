@@ -87,6 +87,7 @@ require("lazy").setup({
 					"typescript",
 					"svelte",
 					"tsx",
+					"go",
 				})
 
 				vim.api.nvim_create_autocmd("FileType", {
@@ -100,6 +101,7 @@ require("lazy").setup({
 						"svelte",
 						"javascriptreact",
 						"typescriptreact",
+						"go",
 					},
 					callback = function()
 						vim.treesitter.start()
@@ -158,6 +160,7 @@ require("lazy").setup({
 					svelte = { "prettier" },
 					javascriptreact = { "prettier" },
 					typescriptreact = { "prettier" },
+					go = { "gofmt" },
 					markdown = { "prettier" },
 					yaml = { "prettier" },
 					json = { "prettier" },
@@ -310,4 +313,4 @@ require("lazy").setup({
 })
 
 -- Configs at: https://github.com/neovim/nvim-lspconfig
-vim.lsp.enable({ "nixd", "lua_ls", "pyright", "html", "ts_ls", "svelte" })
+vim.lsp.enable({ "nixd", "lua_ls", "pyright", "html", "ts_ls", "svelte", "gopls" })
