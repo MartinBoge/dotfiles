@@ -27,6 +27,7 @@
     azure-storage-azcopy
     terraform
     claude-code
+    go
 
     # LSPs and formatters
     nixd
