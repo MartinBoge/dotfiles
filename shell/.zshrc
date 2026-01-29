@@ -26,3 +26,6 @@ export ANTHROPIC_DEFAULT_OPUS_MODEL="claude-opus-4-5"
 export ANTHROPIC_DEFAULT_SONNET_MODEL="claude-sonnet-4-5"
 export ANTHROPIC_DEFAULT_HAIKU_MODEL="claude-haiku-4-5"
 # export ANTHROPIC_FOUNDRY_API_KEY="" set in local.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"
+source "/etc/profiles/per-user/$USER/etc/profile.d/hm-session-vars.sh"

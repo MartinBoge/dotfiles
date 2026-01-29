@@ -18,6 +18,7 @@
     vscode-langservers-extracted
     pandoc
     texliveMedium
+    libiconv
 
     # Development
     uv
@@ -52,6 +53,10 @@
 
   home.file.".zshrc".source =
     config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/shell/.zshrc";
+
+  home.sessionVariables = {
+    LIBRARY_PATH = "${pkgs.libiconv}/lib";
+  };
 
   programs.oh-my-posh.enable = true;
   home.file.".config/oh-my-posh/config.json".source =
