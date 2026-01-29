@@ -79,8 +79,10 @@ require("lazy").setup({
 			build = ":TSUpdate",
 			config = function()
 				require("nvim-treesitter").install({
-					"nix",
 					"lua",
+					"regex",
+					"bash",
+					"nix",
 					"python",
 					"html",
 					"javascript",
@@ -88,12 +90,15 @@ require("lazy").setup({
 					"svelte",
 					"tsx",
 					"go",
+					"rust",
 				})
 
 				vim.api.nvim_create_autocmd("FileType", {
 					pattern = {
-						"nix",
 						"lua",
+						"regex",
+						"bash",
+						"nix",
 						"python",
 						"html",
 						"javascript",
@@ -102,6 +107,7 @@ require("lazy").setup({
 						"javascriptreact",
 						"typescriptreact",
 						"go",
+						"rust",
 					},
 					callback = function()
 						vim.treesitter.start()
@@ -147,8 +153,11 @@ require("lazy").setup({
 					lsp_format = "fallback",
 				},
 				formatters_by_ft = {
-					nix = { "nixfmt" },
+					markdown = { "prettier" },
+					yaml = { "prettier" },
+					json = { "prettier" },
 					lua = { "stylua" },
+					nix = { "nixfmt" },
 					python = {
 						"ruff_fix",
 						"ruff_format",
@@ -161,9 +170,7 @@ require("lazy").setup({
 					javascriptreact = { "prettier" },
 					typescriptreact = { "prettier" },
 					go = { "gofmt" },
-					markdown = { "prettier" },
-					yaml = { "prettier" },
-					json = { "prettier" },
+					rust = { "rustfmt" },
 				},
 			},
 		},
@@ -313,4 +320,4 @@ require("lazy").setup({
 })
 
 -- Configs at: https://github.com/neovim/nvim-lspconfig
-vim.lsp.enable({ "nixd", "lua_ls", "pyright", "html", "ts_ls", "svelte", "gopls" })
+vim.lsp.enable({ "lua_ls", "nixd", "pyright", "html", "ts_ls", "svelte", "gopls", "rust_analyzer" })

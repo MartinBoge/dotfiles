@@ -29,6 +29,7 @@
     claude-code
     go
     air
+    rustup
 
     # LSPs and formatters
     nixd
