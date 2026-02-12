@@ -24,10 +24,10 @@ npm install -g \
   svelte-language-server
 
 # Rust
-if ! command -v rustup &> /dev/null; then
+if [[ ! -f "$HOME/.cargo/env" ]]; then
   rustup-init -y
 fi
-source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 rustup component add rustfmt rust-analyzer
 
 # Stow
