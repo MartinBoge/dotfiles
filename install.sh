@@ -16,7 +16,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   BREW_PATH="/opt/homebrew/bin/brew"
 fi
 if [[ ! -f "$BREW_PATH" ]]; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 eval "$($BREW_PATH shellenv)"
 brew bundle
