@@ -1,20 +1,11 @@
 # dotfiles
 
-### Getting started
+### Installation guide
 
-1. Install [Nix](https://nixos.org/download/)
-2. Clone: `git clone git@github.com:MartinBoge/dotfiles.git ~/dotfiles`
-3. Go to Nix config: `cd ~/dotfiles/nix`
-4. Rebuild:
-   - For WSL: `sudo nix --extra-experimental-features 'nix-command flakes' run nixos-rebuild -- switch --flake .#wsl`
-   - For Mac: `sudo nix --extra-experimental-features 'nix-command flakes' run nix-darwin -- switch --flake .#mac`
-   - For NixOS: `sudo nix --extra-experimental-features 'nix-command flakes' run nixos-rebuild -- switch --flake .#nixos`
-5. Enjoy!
-
-### SSH Keygen
-
-- Generate Ed25519 SSH key: `ssh-keygen -t ed25519 -C "comment"`
-- Generate RSA SSH key: `ssh-keygen -t rsa -b 4096 -C "comment"`
+1. Setup SSH key pair: `ssh-keygen -t ed25519 -C "martin-boge@<host_name>" && cat ~/.ssh/id_ed25519.pub`
+2. Add the public key to GitHub: https://github.com/settings/keys
+3. Clone: `git clone git@github.com:MartinBoge/dotfiles.git ~/dotfiles`
+4. Install: `cd ~/dotfiles && bash install.sh`
 
 ### Resources
 

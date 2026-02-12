@@ -1,0 +1,15 @@
+[user]
+    name = Martin Bøge Jørgensen
+    email = martin.boge@live.dk
+
+[init]
+    defaultBranch = main
+
+[push]
+    autoSetupRemote = true
+
+[pull]
+    rebase = true
+
+[rebase]
+    autoStash = true
