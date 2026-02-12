@@ -8,7 +8,15 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 # Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  BREW_PATH="/home/linuxbrew/.linuxbrew/bin/brew"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  BREW_PATH="/opt/homebrew/bin/brew"
+fi
+if [[ ! -f "$BREW_PATH" ]]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+eval "$($BREW_PATH shellenv)"
 brew bundle
 
 # Global NPM packages
