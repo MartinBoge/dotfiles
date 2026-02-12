@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-sudo -v
-while true; do sudo -n true; sleep 50; done 2>/dev/null &
-SUDO_PID=$!
-trap "kill $SUDO_PID" EXIT
-
 OS=$(uname -s)
 
 # Linux
