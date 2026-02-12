@@ -2,17 +2,22 @@
 set -e
 
 sudo -v
+while true; do sudo -n true; sleep 50; done 2>/dev/null &
+SUDO_PID=$!
+trap "kill $SUDO_PID" EXIT
+
+OS=$(uname -s)
 
 # Linux
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if [[ "$OS" == "Linux" ]]; then
   sudo apt update && sudo apt upgrade -y
   sudo apt install -y build-essential
 fi
 
 # Homebrew
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if [[ "$OS" == "Linux" ]]; then
   BREW_PATH="/home/linuxbrew/.linuxbrew/bin/brew"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
+elif [[ "$OS" == "Darwin" ]]; then
   BREW_PATH="/opt/homebrew/bin/brew"
 fi
 if [[ ! -f "$BREW_PATH" ]]; then
