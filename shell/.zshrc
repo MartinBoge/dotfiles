@@ -1,9 +1,10 @@
 # Homebrew
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  BREW_PATH="/home/linuxbrew/.linuxbrew/bin/brew"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+  BREW_PATH="/opt/homebrew/bin/brew"
 fi
+eval "$($BREW_PATH shellenv)"
 
 # Functions
 openu() { # Open URL
