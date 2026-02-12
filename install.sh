@@ -35,6 +35,7 @@ stow shell git tmux oh-my-posh neovim
 
 # zsh
 if [[ "$SHELL" != */zsh ]]; then
+  which zsh | sudo tee -a /etc/shells
   chsh -s $(which zsh)
 fi
 
