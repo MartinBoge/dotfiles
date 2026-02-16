@@ -26,5 +26,8 @@ alias venv="source .venv/bin/activate"
 # Initializations
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.json)"
 
+# Fast Node Manager (fnm)
+eval "$(fnm env --use-on-cd)"
+
 # Rust
 . "$HOME/.cargo/env"
