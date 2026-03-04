@@ -149,7 +149,7 @@ require("lazy").setup({
 			event = "VeryLazy",
 			opts = {
 				format_on_save = {
-					timeout_ms = 500,
+					timeout_ms = 2000,
 					lsp_format = "fallback",
 				},
 				formatters_by_ft = {
@@ -158,6 +158,7 @@ require("lazy").setup({
 					json = { "prettier" },
 					lua = { "stylua" },
 					nix = { "nixfmt" },
+					terraform = { "terraform_fmt" },
 					python = {
 						"ruff_fix",
 						"ruff_format",
