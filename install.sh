@@ -33,7 +33,7 @@ fi
 rustup component add rustfmt rust-analyzer
 
 # Stow
-stow shell git tmux oh-my-posh neovim
+stow shell git tmux oh-my-posh neovim ghostty
 
 # zsh
 if [[ "$SHELL" != */zsh ]]; then

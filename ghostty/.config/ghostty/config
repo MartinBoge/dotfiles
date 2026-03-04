@@ -1,0 +1,4 @@
+# Send ESC+CR for Shift+Enter so Claude Code inside tmux can insert newlines.
+# Ghostty uses kitty keyboard protocol but tmux doesn't negotiate it, so this
+# bypasses the negotiation by sending a sequence Claude Code recognizes directly.
+keybind = shift+enter=text:\x1b\r
