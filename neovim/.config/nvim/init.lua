@@ -29,6 +29,21 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Show diagnostics (under the cursor)" })
 vim.keymap.set("n", "<leader>db", vim.diagnostic.setloclist, { desc = "Buffer diagnostics" })
 vim.keymap.set("n", "<leader>da", vim.diagnostic.setqflist, { desc = "All diagnostics" })
+-- Diagnostics: squiggly underlines + auto-show float on cursor hold
+vim.opt.updatetime = 400
+vim.diagnostic.config({
+	underline = true,
+	virtual_text = { severity = { min = vim.diagnostic.severity.WARN } },
+	signs = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = { border = "rounded", source = true },
+})
+vim.api.nvim_create_autocmd("CursorHold", {
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
+})
 -- Key mappings: Refactor
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
 
