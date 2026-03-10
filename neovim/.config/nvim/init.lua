@@ -168,6 +168,20 @@ require("lazy").setup({
 					timeout_ms = 2000,
 					lsp_format = "fallback",
 				},
+				formatters = {
+					eslint_d = {
+						condition = function(_, ctx)
+							return vim.fs.find({
+								".eslintrc",
+								".eslintrc.js",
+								".eslintrc.cjs",
+								".eslintrc.json",
+								"eslint.config.js",
+								"eslint.config.mjs",
+							}, { path = ctx.filename, upward = true })[1]
+						end,
+					},
+				},
 				formatters_by_ft = {
 					markdown = { "prettier" },
 					yaml = { "prettier" },
@@ -181,11 +195,11 @@ require("lazy").setup({
 						"ruff_organize_imports",
 					},
 					html = { "prettier" },
-					javascript = { "eslint", "prettier" },
-					typescript = { "eslint", "prettier" },
-					svelte = { "eslint", "prettier" },
-					javascriptreact = { "eslint", "prettier" },
-					typescriptreact = { "eslint", "prettier" },
+					javascript = { "eslint_d", "prettier" },
+					typescript = { "eslint_d", "prettier" },
+					svelte = { "eslint_d", "prettier" },
+					javascriptreact = { "eslint_d", "prettier" },
+					typescriptreact = { "eslint_d", "prettier" },
 					go = { "gofmt" },
 					rust = { "rustfmt" },
 				},
