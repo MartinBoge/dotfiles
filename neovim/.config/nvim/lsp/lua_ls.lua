@@ -36,6 +36,7 @@ return {
 				library = { vim.env.VIMRUNTIME },
 			},
 		})
+		client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
 	end,
 	settings = {
 		Lua = {
