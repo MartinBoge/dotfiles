@@ -32,8 +32,15 @@ fi
 . "$HOME/.cargo/env"
 rustup component add rustfmt rust-analyzer
 
-# Stow
-stow shell git tmux oh-my-posh neovim ghostty
+# File symlinks
+ln -sf "$HOME/dotfiles/shell/.zshrc" "$HOME/.zshrc"
+ln -sf "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$HOME/dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
+
+# Directory symlinks
+ln -sfn "$HOME/dotfiles/neovim" "$HOME/.config/nvim"
+ln -sfn "$HOME/dotfiles/ghostty" "$HOME/.config/ghostty"
+ln -sfn "$HOME/dotfiles/oh-my-posh" "$HOME/.config/oh-my-posh"
 
 # zsh
 if [[ "$SHELL" != */zsh ]]; then

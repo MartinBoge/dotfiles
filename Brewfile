@@ -1,6 +1,5 @@
 brew "gcc"
 brew "zsh"
-brew "stow"
 brew "oh-my-posh"
 brew "tmux"
 brew "neovim"
