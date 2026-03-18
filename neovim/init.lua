@@ -5,6 +5,7 @@ vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard for all yank, delete, and paste operations (may require external provider on linux)
 vim.opt.autoread = true -- Reload files when changed outside of Neovim
 vim.opt.cursorline = true -- Highlights the line where the cursor is at
+vim.g.omni_sql_no_default_maps = 1 -- Disable ftplugin to skip creating sql maps
 
 vim.cmd.colorscheme("martycolor")
 
