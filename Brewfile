@@ -24,6 +24,7 @@ brew "goose"
 brew "rustup"
 brew "azure-cli"
 brew "azcopy"
+brew "pandoc"
 
 tap "oven-sh/bun"
 brew "oven-sh/bun/bun"
