@@ -25,6 +25,7 @@ brew "rustup"
 brew "azure-cli"
 brew "azcopy"
 brew "pandoc"
+brew "mas"
 
 tap "oven-sh/bun"
 brew "oven-sh/bun/bun"

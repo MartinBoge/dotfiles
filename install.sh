@@ -21,6 +21,11 @@ fi
 eval "$($BREW_PATH shellenv)"
 brew bundle
 
+# Mac
+if [[ "$OS" == "Darwin" ]]; then
+  mas install 441258766 # Magnet
+fi
+
 # Global NPM packages
 npm install -g \
   svelte-language-server
@@ -33,6 +38,7 @@ fi
 rustup component add rustfmt rust-analyzer
 
 # File symlinks
+mkdir -p "$HOME/.config"
 ln -sf "$HOME/dotfiles/shell/.zshrc" "$HOME/.zshrc"
 ln -sf "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$HOME/dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
