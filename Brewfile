@@ -41,6 +41,9 @@ brew "typescript"
 brew "typescript-language-server"
 brew "gopls"
 
+tap "terror/tap"
+brew "terror/tap/just-lsp"
+
 tap "hashicorp/tap"
 brew "hashicorp/tap/terraform"
 
