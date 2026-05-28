@@ -1,6 +1,6 @@
 [user]
-    name = Martin Bøge Jørgensen
-    email = martin.boge@live.dk
+	name = Martin Bøge Jørgensen
+	email = martin.boge@live.dk
 
 [init]
     defaultBranch = main
