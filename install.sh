@@ -31,25 +31,19 @@ if [[ "$OS" == "Darwin" ]]; then
   sudo xcodebuild -downloadPlatform iOS
 fi
 
-# Global NPM packages
-npm install -g \
-  svelte-language-server
-
 # Rust
 if [[ ! -f "$HOME/.cargo/env" ]]; then
   rustup-init -y
 fi
 . "$HOME/.cargo/env"
-rustup component add rustfmt rust-analyzer
+rustup component add rustfmt
 
 # File symlinks
 mkdir -p "$HOME/.config"
 ln -sf "$HOME/dotfiles/shell/.zshrc" "$HOME/.zshrc"
 ln -sf "$HOME/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
-ln -sf "$HOME/dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
 
 # Directory symlinks
-ln -sfn "$HOME/dotfiles/neovim" "$HOME/.config/nvim"
 ln -sfn "$HOME/dotfiles/ghostty" "$HOME/.config/ghostty"
 ln -sfn "$HOME/dotfiles/oh-my-posh" "$HOME/.config/oh-my-posh"
 
