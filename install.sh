@@ -24,6 +24,11 @@ brew bundle
 # Mac
 if [[ "$OS" == "Darwin" ]]; then
   mas install 441258766 # Magnet
+  mas install 497799835 # Xcode
+  sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+  sudo xcodebuild -license accept
+  sudo xcodebuild -runFirstLaunch
+  sudo xcodebuild -downloadPlatform iOS
 fi
 
 # Global NPM packages
