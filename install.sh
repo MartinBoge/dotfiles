@@ -32,10 +32,7 @@ if [[ "$OS" == "Darwin" ]]; then
 fi
 
 # Rust
-if [[ ! -f "$HOME/.cargo/env" ]]; then
-  rustup-init -y
-fi
-. "$HOME/.cargo/env"
+rustup default stable
 rustup component add rustfmt
 
 # File symlinks

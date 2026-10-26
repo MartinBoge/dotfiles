@@ -23,7 +23,7 @@ brew "mas"
 brew "gh"
 
 tap "oven-sh/bun"
-brew "oven-sh/bun/bun"
+brew "oven-sh/bun/bun", trusted: true
 
 brew "ruff"
 brew "prettier"
@@ -31,12 +31,13 @@ brew "eslint"
 brew "typescript"
 
 tap "terror/tap"
-brew "terror/tap/just-lsp"
+brew "terror/tap/just-lsp", trusted: true
 
 tap "hashicorp/tap"
-brew "hashicorp/tap/terraform"
+brew "hashicorp/tap/terraform", trusted: true
 
 cask "docker-desktop"
+cask "1password"
 cask "displaylink"
 cask "pgadmin4"
 cask "ghostty"

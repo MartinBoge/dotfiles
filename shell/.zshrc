@@ -29,4 +29,4 @@ eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/config.json)"
 eval "$(fnm env --use-on-cd)"
 
 # Rust
-. "$HOME/.cargo/env"
+export PATH="$HOMEBREW_PREFIX/opt/rustup/bin:$HOME/.cargo/bin:$PATH"
