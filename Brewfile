@@ -39,6 +39,7 @@ brew "hashicorp/tap/terraform", trusted: true
 
 cask "docker-desktop"
 cask "1password"
+cask "1password-cli"
 cask "displaylink"
 cask "pgadmin4"
 cask "ghostty"
